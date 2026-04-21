@@ -282,12 +282,24 @@ curl http://${NODE_IP}:30080/readyz
 
 ### 4.1 Configure GitHub Secrets
 
-Go to your GitHub repo → **Settings → Secrets and variables → Actions** → New repository secret
+> **Must do this before running the pipeline** — without these secrets, the Docker login step will fail.
+
+**Step 1 – Create a Docker Hub Access Token:**
+
+1. Go to [https://hub.docker.com/settings/security](https://hub.docker.com/settings/security)
+2. Click **New Access Token** → give it a name (e.g. `github-actions`) → **Generate**
+3. Copy the token (it will only be shown once)
+
+**Step 2 – Add secrets to your GitHub repo:**
+
+1. Go to your forked repo on GitHub
+2. Click **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret** and add both:
 
 | Secret Name | Value |
 | ----------- | ----- |
 | `DOCKER_USERNAME` | Your Docker Hub username |
-| `DOCKER_TOKEN` | Docker Hub Access Token ([create one here](https://hub.docker.com/settings/security)) |
+| `DOCKER_TOKEN` | The access token you just created |
 
 ### 4.2 Install Self-hosted Runner on Cloud Shell
 

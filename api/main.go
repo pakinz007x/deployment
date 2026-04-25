@@ -115,7 +115,7 @@ func healthReady(c *gin.Context) {
 func welcome(c *gin.Context) {
 	// TODO: เปลี่ยนข้อความนี้เพื่อทดสอบ CI/CD
 	jsonResponse(c, http.StatusOK, gin.H{
-		"message": "Hello from Go API v2.0.0 ✨",
+		"message": "Hello from Go API v0.0.7 ✨",
 		"time":    time.Now().UTC(),
 	})
 }
